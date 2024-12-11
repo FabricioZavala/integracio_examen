@@ -9,7 +9,7 @@ app.get('/api/integrantes', (req, res) => {
     const integrantes = [
         "MILTON LEIBNITZ ANGAMARCA MOYA",
         "ARIANA ISABEL QUIJIJE VELEZ",
-        "FABRICIO JOSUE ZAVALA REYES",
+        "FABRICIOoo JOSUE ZAVALA REYES",
         "JONATHAN STEVEN MARIN GUERRERO"
     ];
     res.json({ integrantes });
