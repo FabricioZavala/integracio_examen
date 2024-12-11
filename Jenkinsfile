@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    triggers {
-        pollSCM('* * * * *') 
-    }
     stages {
         stage('Clonar repositorio') {
             steps {
@@ -19,10 +16,9 @@ pipeline {
         stage('Desplegar contenedor') {
             steps {
                 script {
-                    sh 'docker stop proyecto-integrantes || true'
-                    sh 'docker rm proyecto-integrantes || true'
-                    
-                    sh 'docker run -d --name proyecto-integrantes -p 3000:3000 proyecto-integrantes:latest'
+                    docker.withRegistry('', '') {
+                        docker.image("proyecto-integrantes:latest").run('-d --name proyecto-integrantes -p 3000:3000')
+                    }
                 }
             }
         }
